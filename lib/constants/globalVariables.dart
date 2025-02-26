@@ -1,6 +1,7 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-var BGColor = Colors.black;
+var BGColor = CupertinoColors.systemYellow;
 var textColor = Colors.white;
 
 void ShowSnakbar(String  data,BuildContext context){

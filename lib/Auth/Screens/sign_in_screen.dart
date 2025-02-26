@@ -28,6 +28,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: BGColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -55,6 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
 
             SizedBox(height: 60,),
+
 
             TextFormField(
               controller: emailController,

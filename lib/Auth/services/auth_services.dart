@@ -1,3 +1,4 @@
+import 'package:disaster_management/Auth/Screens/AccountCreateScreen.dart';
 import 'package:disaster_management/Features/Home/homeScreen.dart';
 import 'package:disaster_management/constants/globalVariables.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class AuthServices{
   FirebaseAuth auth = FirebaseAuth.instance;
-  void SignUpAccount({
+  Future SignUpAccount({
     required String email,
     required String password,
     required BuildContext context

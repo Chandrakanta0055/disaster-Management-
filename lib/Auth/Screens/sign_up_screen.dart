@@ -1,3 +1,4 @@
+import 'package:disaster_management/Auth/Screens/AccountCreateScreen.dart';
 import 'package:disaster_management/Auth/services/auth_services.dart';
 import 'package:flutter/material.dart';
 
@@ -21,8 +22,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if(emailController.text.isEmpty || passwordController.text.isEmpty || conformPasswordController.text.isEmpty )
       {
         ShowSnakbar("please enter all the field", context);
+        return ;
       }
-    authServices.SignUpAccount(email: emailController.text, password: passwordController.text, context: context);
+    // authServices.SignUpAccount(email: emailController.text, password: passwordController.text, context: context);
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>AccountCreateScreen(email: email, Password: password)));
   }
 
 
