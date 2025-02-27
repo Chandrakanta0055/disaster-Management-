@@ -45,7 +45,9 @@ class AccountCreateServices {
         createdAt: DateTime.now(),
       );
 
+      await FirebaseFirestore.instance.collection("user").doc(uid).set(userModel.toJson());
       // ✅ Get UserProvider instance and update Firestore & UI state
+
       final userProvider = Provider.of<UserProvider>(context, listen: false);
       await userProvider.setUserData(userModel);
 

@@ -49,32 +49,6 @@ class MyApp extends StatelessWidget {
 }
 
 
-
-
-
-//
-// class AuthManage extends StatelessWidget {
-//   const AuthManage({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return StreamBuilder<User?>(
-//       stream: FirebaseAuth.instance.authStateChanges(),
-//       builder: (context, snapshot) {
-//         if (snapshot.connectionState == ConnectionState.waiting) {
-//           return const Center(child: CircularProgressIndicator()); // Show loading indicator
-//         }
-//
-//         if (snapshot.hasData && snapshot.data != null) {
-//           return const MyHomeScreen(); // User is signed in
-//         } else {
-//           return const MyApp(); // User is not signed in
-//         }
-//       },
-//     );
-//   }
-// }
-
 // Wrap Homescreen inside MaterialApp
 class MyHomeScreen extends StatelessWidget {
   const MyHomeScreen({super.key});

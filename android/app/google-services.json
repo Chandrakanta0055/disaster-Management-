@@ -1,13 +1,51 @@
 {
   "project_info": {
-    "project_number": "159135395904",
-    "project_id": "disaster-management-8442b",
-    "storage_bucket": "disaster-management-8442b.firebasestorage.app"
+    "project_number": "454228069096",
+    "project_id": "student-management-bb597",
+    "storage_bucket": "student-management-bb597.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:159135395904:android:bb6df3a95e39ef797fefa5",
+        "mobilesdk_app_id": "1:454228069096:android:edcef9caf2ec1828a6975d",
+        "android_client_info": {
+          "package_name": "com.example.blog_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8LfB53-0b6RdTOl8jNVXQmehoeZk0hss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454228069096:android:d55cbba5c6d60bd2a6975d",
+        "android_client_info": {
+          "package_name": "com.example.blogger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8LfB53-0b6RdTOl8jNVXQmehoeZk0hss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454228069096:android:7cdc0575649a606fa6975d",
         "android_client_info": {
           "package_name": "com.example.disaster_management"
         }
@@ -15,7 +53,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB_ADzWB3A-_US0aBKIHRQ3qvAWcYtgRXg"
+          "current_key": "AIzaSyB8LfB53-0b6RdTOl8jNVXQmehoeZk0hss"
         }
       ],
       "services": {

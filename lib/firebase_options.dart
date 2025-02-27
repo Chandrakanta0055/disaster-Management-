@@ -47,29 +47,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD5S1s9V8yCZvFMCEzotgGzzwXTBtXzIhU',
-    appId: '1:159135395904:web:b4cfbd4c219068597fefa5',
-    messagingSenderId: '159135395904',
-    projectId: 'disaster-management-8442b',
-    authDomain: 'disaster-management-8442b.firebaseapp.com',
-    storageBucket: 'disaster-management-8442b.firebasestorage.app',
-    measurementId: 'G-LFQ305N56W',
+    apiKey: 'AIzaSyBtDvttzFNp_q5BF3vadbBtiDdBO6bYKWY',
+    appId: '1:454228069096:web:7b059edce0658f7ba6975d',
+    messagingSenderId: '454228069096',
+    projectId: 'student-management-bb597',
+    authDomain: 'student-management-bb597.firebaseapp.com',
+    storageBucket: 'student-management-bb597.appspot.com',
+    measurementId: 'G-VGBRTPFXBS',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB_ADzWB3A-_US0aBKIHRQ3qvAWcYtgRXg',
-    appId: '1:159135395904:android:bb6df3a95e39ef797fefa5',
-    messagingSenderId: '159135395904',
-    projectId: 'disaster-management-8442b',
-    storageBucket: 'disaster-management-8442b.firebasestorage.app',
+    apiKey: 'AIzaSyB8LfB53-0b6RdTOl8jNVXQmehoeZk0hss',
+    appId: '1:454228069096:android:7cdc0575649a606fa6975d',
+    messagingSenderId: '454228069096',
+    projectId: 'student-management-bb597',
+    storageBucket: 'student-management-bb597.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBZUfE1TnNcaBDfOj-DsCPtKOR7MZclxzM',
-    appId: '1:159135395904:ios:ba59810f92f3b8ce7fefa5',
-    messagingSenderId: '159135395904',
-    projectId: 'disaster-management-8442b',
-    storageBucket: 'disaster-management-8442b.firebasestorage.app',
+    apiKey: 'AIzaSyBhkxcSygY3FqMTtSQy5-RjdWz9We1TzCA',
+    appId: '1:454228069096:ios:dc029a4e1f1bf3d9a6975d',
+    messagingSenderId: '454228069096',
+    projectId: 'student-management-bb597',
+    storageBucket: 'student-management-bb597.appspot.com',
     iosBundleId: 'com.example.disasterManagement',
   );
+
 }
