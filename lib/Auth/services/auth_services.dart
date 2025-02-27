@@ -1,5 +1,5 @@
 import 'package:disaster_management/Auth/Screens/AccountCreateScreen.dart';
-import 'package:disaster_management/Features/Home/homeScreen.dart';
+import 'package:disaster_management/Features/User/Screens/homeScreen.dart';
 import 'package:disaster_management/constants/globalVariables.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';

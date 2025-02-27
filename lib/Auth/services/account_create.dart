@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disaster_management/Auth/services/auth_services.dart';
-import 'package:disaster_management/Features/Home/homeScreen.dart';
+import 'package:disaster_management/Features/User/Screens/homeScreen.dart';
 import 'package:disaster_management/Model/userModel.dart';
 import 'package:disaster_management/constants/globalVariables.dart';
  // Import UserProvider

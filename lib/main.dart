@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disaster_management/Auth/Screens/AccountCreateScreen.dart';
 import 'package:disaster_management/Auth/Screens/sign_in_screen.dart';
-import 'package:disaster_management/Features/Home/homeScreen.dart';
+import 'package:disaster_management/Features/User/Screens/homeScreen.dart';
 import 'package:disaster_management/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
