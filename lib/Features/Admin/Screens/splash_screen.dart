@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'dart:async'; // For Timer
+import 'dart:async';
+import 'package:provider/provider.dart';
+import 'package:disaster_management/provider/user_provider.dart';
+import 'package:disaster_management/Auth/Screens/sign_in_screen.dart';
+import 'package:disaster_management/Features/User/Screens/homeScreen.dart';
 
 class SplashScreen extends StatefulWidget {
-  final Widget? nextScreen; // Optional: Navigate to next screen after splash
-
-  SplashScreen({Key? key, this.nextScreen}) : super(key: key);
-
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -15,14 +15,20 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    if (widget.nextScreen != null) {
-      Timer(Duration(seconds: 3), () { // Reduced timer to 3 seconds
+    Future.delayed(const Duration(seconds: 3), () {
+      final userProvider = Provider.of<UserProvider>(context, listen: false);
+      if (userProvider.user != null) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => widget.nextScreen!),
+          MaterialPageRoute(builder: (context) => const Homescreen()),
         );
-      });
-    }
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const SignInScreen()),
+        );
+      }
+    });
   }
 
   @override
@@ -31,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.green[900]!,Colors.white , Colors.black],
+            colors: [Colors.green[900]!, Colors.white, Colors.black],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -41,10 +47,10 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                'assets/logo.png', // Replace with your logo asset path
-                height: 100, // Adjust logo height as needed
+                'assets/logo.png', // Ensure the logo exists in the assets folder
+                height: 100,
               ),
-              SizedBox(height: 20), // Add spacing between logo and text
+              const SizedBox(height: 20),
               AnimatedTextKit(
                 animatedTexts: [
                   TypewriterAnimatedText(
@@ -54,11 +60,11 @@ class _SplashScreenState extends State<SplashScreen> {
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
-                    speed: const Duration(milliseconds: 200), // Increased speed
+                    speed: const Duration(milliseconds: 200),
                   ),
                 ],
                 totalRepeatCount: 1,
-                pause: const Duration(milliseconds: 600), // Reduced pause
+                pause: const Duration(milliseconds: 600),
               ),
               const SizedBox(height: 20),
               AnimatedTextKit(
@@ -69,11 +75,11 @@ class _SplashScreenState extends State<SplashScreen> {
                       fontSize: 18.0,
                       color: Colors.black,
                     ),
-                    speed: const Duration(milliseconds: 50), // Increased speed
+                    speed: const Duration(milliseconds: 50),
                   ),
                 ],
                 totalRepeatCount: 1,
-                pause: const Duration(milliseconds: 500), // Reduced pause
+                pause: const Duration(milliseconds: 500),
               ),
             ],
           ),
