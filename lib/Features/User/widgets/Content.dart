@@ -60,7 +60,7 @@ class Content extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               text,
-              style: TextStyle(fontSize: 16, color: color),
+              style: TextStyle(fontSize: 15, color: color),
               textAlign: TextAlign.center,
             ),
           ],

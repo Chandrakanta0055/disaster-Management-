@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class NotificationModel {
   final String id;
@@ -10,6 +9,8 @@ class NotificationModel {
   String status;
   final String senderId;
   final String category;// ComplainBox
+  double? rating =0;
+  String? name;
 
   NotificationModel({
     required this.id,
@@ -21,6 +22,8 @@ class NotificationModel {
     this.status = 'Pending',
     required this.senderId,
     required this.category,
+    this.rating,
+    this.name
   });
 
   factory NotificationModel.fromMap(Map<String, dynamic> data) {
@@ -28,12 +31,14 @@ class NotificationModel {
       id: data['id'],
       title: data['title'],
       description: data['description'],
-      imagePaths: List<String>.from(data['imagePaths']),
+      imagePaths: List<String>.from(data['imagePaths'])?? [],
       location: data['location'],
       dateSubmitted: data['dateSubmitted'],
       status: data['status'] ?? 'Pending',
       senderId: data['senderId'],
       category: data['category'],
+      rating:  data['rating'] ?? 0.0,
+      name:  data["name"] ?? ""
     );
   }
 
@@ -48,6 +53,8 @@ class NotificationModel {
       'status': status,
       'senderId': senderId,
       'category': category,
+      'rating':rating,
+      'name' : name
     };
   }
 }

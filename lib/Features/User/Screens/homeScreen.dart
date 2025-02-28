@@ -1,3 +1,4 @@
+import 'package:disaster_management/Features/Admin/Screens/emergency_alert.dart';
 import 'package:disaster_management/Features/Admin/Screens/report.dart';
 import 'package:disaster_management/Features/Admin/Screens/work.dart';
 import 'package:disaster_management/Features/User/Screens/ShowNotification.dart';
@@ -16,6 +17,7 @@ import '../widgets/Content.dart';
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
 
+
   @override
   State<Homescreen> createState() => _HomescreenState();
 }
@@ -26,14 +28,18 @@ class _HomescreenState extends State<Homescreen> {
     final userProvider = Provider.of<UserProvider>(context);
     final user = userProvider.user;
 
-    List<String> items = [
-      "Complain Box",
+    List<String> items = user!.role == "admin" ? [
+      "Emergency Alert",
       "Notification",
       "Weather Updates",
       "Feed Back",
       "report",
       "work"
-
+    ] : [
+      "Complain Box",
+      "Notification",
+      "Weather Updates",
+      "Feed Back",
     ]; // Sample data for the grid
 
     return Scaffold(
@@ -50,7 +56,7 @@ class _HomescreenState extends State<Homescreen> {
     child: AppBar(
     flexibleSpace: Container(
     decoration: BoxDecoration(
-   color: BGColor
+   color: Colors.green[100]
     ),
     ),
     elevation: 0,
@@ -79,7 +85,7 @@ class _HomescreenState extends State<Homescreen> {
     body:  Container(
     decoration: const BoxDecoration(
     gradient: LinearGradient(
-      colors: [Colors.green, Colors.white], // Gradient from Green to White
+      colors: [ Colors.white,Colors.green], // Gradient from Green to White
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
     ),
@@ -128,8 +134,13 @@ class _HomescreenState extends State<Homescreen> {
     color: Colors.black,
     bgColor: Colors.black12,
     callback: () {
-      if(index == 0 )
+      if(index == 0  && user.role == "admin")
         {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> EmergencyAlert()));
+
+        }
+
+      else if(index == 0)  {
           Navigator.push(context, MaterialPageRoute(builder: (context)=> ComplainBox()));
         }
       else if(index ==1)

@@ -1,3 +1,4 @@
+import 'package:disaster_management/Features/User/Srevices/FeedBackSrevices.dart';
 import 'package:disaster_management/constants/CustomButton.dart';
 import 'package:disaster_management/constants/globalVariables.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class FeedbackWidget extends StatefulWidget {
 
 class _FeedbackWidgetState extends State<FeedbackWidget> {
   TextEditingController _feedbackController = TextEditingController();
-  double _rating = 3.0;
+  double _rating = 0.0;
   String _displayedRating = "";
 
   @override
@@ -18,7 +19,7 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
     return Scaffold(
       appBar: AppBar(
           title: Text("Feedback"),
-          backgroundColor: BGColor
+          backgroundColor: appBarColor
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -54,9 +55,14 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
             SizedBox(height: 20),
             Container(
               width: 100,
-              child: CustomButton(text: "Post", callback: (){
-
+              child: CustomButton(text: "Send", callback: (){
+                FeedBackServices services = FeedBackServices();
+                if(_feedbackController.text.isEmpty)
+                  return;
+                services.GiveFeedBack(context: context, rating: _rating, description: _feedbackController.text.trim());
+                Navigator.pop(context);
               }),
+
             ),
             SizedBox(height: 20),
             Text(

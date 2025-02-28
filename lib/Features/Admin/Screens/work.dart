@@ -18,7 +18,33 @@ class _TaskListWidgetState extends State<Work> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Task List'),
-        backgroundColor: BGColor,
+        backgroundColor: appBarColor,
+        actions: [
+          SizedBox(width: 10),
+          InkWell(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: TextFormField(
+                      style: TextStyle(color: black),
+                      decoration: InputDecoration(
+                        hintText: "Task Name",
+                        hintStyle: TextStyle(color: black),
+                        border: InputBorder.none,
+                      ),
+                    ),
+
+
+                  );
+                },
+              );
+            },
+            child: Icon(Icons.add, size: 20),
+          ),
+          SizedBox(width: 20),
+        ],
       ),
       body: ListView.builder(
         itemCount: tasks.length,
@@ -44,3 +70,4 @@ class _TaskListWidgetState extends State<Work> {
     );
   }
 }
+

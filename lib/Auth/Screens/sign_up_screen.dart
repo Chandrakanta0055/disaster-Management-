@@ -37,93 +37,98 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BGColor,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 50,),
-            Text("Sign Up ",style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-                color: textColor
-            ),),
-            Padding(padding: EdgeInsets.symmetric(vertical: 6),
-              child: InkWell(
-                onTap: (){
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpScreen()));
-                  Navigator.pop(context);
-                },
-                child: Text("I have an Account  ",style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                    color: Colors.blue
-                ),),
-              ) ,
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: gradiant2
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 50,),
+              Text("Sign Up ",style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                  color: black
+              ),),
+              Padding(padding: EdgeInsets.symmetric(vertical: 6),
+                child: InkWell(
+                  onTap: (){
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpScreen()));
+                    Navigator.pop(context);
+                  },
+                  child: Text("I have an Account  ",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                      color: Colors.blue
+                  ),),
+                ) ,
+              ),
 
-            SizedBox(height: 60,),
+              SizedBox(height: 60,),
 
-            TextFormField(
-                style: TextStyle(color: Colors.white),
+              TextFormField(
+                  style: TextStyle(color: Colors.black),
 
-                controller: emailController,
-                decoration: InputDecoration(
-                    hintText: "Enter the Email",
-                    hintStyle: TextStyle(
-                        color: textColor
-                    ),
-                    border:OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.white, width: 2)
-                    )
-                ))
-            ,
-            SizedBox(height: 20,),
-            TextFormField(
-                style: TextStyle(color: Colors.white),
+                  controller: emailController,
+                  decoration: InputDecoration(
+                      hintText: "Enter the Email",
+                      hintStyle: TextStyle(
+                          color: black
+                      ),
+                      border:OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.white, width: 2)
+                      )
+                  ))
+              ,
+              SizedBox(height: 20,),
+              TextFormField(
+                  style: TextStyle(color: black),
 
-                controller: passwordController,
-                decoration: InputDecoration(
-                    hintText: "Enter the password",
-                    hintStyle: TextStyle(
-                        color: textColor
-                    ),
-                    border:OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.white, width: 2)
-                    )
-                )),
-            SizedBox(height: 20,),
-            TextFormField(
-                style: TextStyle(color: Colors.white),
+                  controller: passwordController,
+                  decoration: InputDecoration(
+                      hintText: "Enter the password",
+                      hintStyle: TextStyle(
+                          color: black
+                      ),
+                      border:OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.white, width: 2)
+                      )
+                  )),
+              SizedBox(height: 20,),
+              TextFormField(
+                  style: TextStyle(color: black),
 
-                controller: conformPasswordController,
-                decoration: InputDecoration(
-                    hintText: "Conform  password",
-                    hintStyle: TextStyle(
-                        color: textColor
-                    ),
-                    border:OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.white, width: 2)
-                    )
-                )),
-            SizedBox(height: 40,),
+                  controller: conformPasswordController,
+                  decoration: InputDecoration(
+                      hintText: "Conform  password",
+                      hintStyle: TextStyle(
+                          color: black
+                      ),
+                      border:OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.white, width: 2)
+                      )
+                  )),
+              SizedBox(height: 40,),
 
-            CustomButton(text: "Sign Up", callback: (){
-              signUp();
-            }),
-            Expanded(child: Container()),
-
-
-            SizedBox(height: 50,)
-
-
-
+              CustomButton(text: "Sign Up", callback: (){
+                signUp();
+              }),
+              Expanded(child: Container()),
 
 
-          ],
+              SizedBox(height: 50,)
+
+
+
+
+
+            ],
+          ),
         ),
       ),
     );

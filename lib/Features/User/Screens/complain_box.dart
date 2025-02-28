@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:disaster_management/Features/User/Srevices/complainServices.dart';
 import 'package:disaster_management/constants/CustomButton.dart';
 import 'package:disaster_management/constants/globalVariables.dart';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -44,8 +45,9 @@ class _ComplainBoxState extends State<ComplainBox> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Complain Box"),
-        backgroundColor: Colors.blue,
+        backgroundColor: appBarColor,
       ),
+
       body: Padding(
         padding: EdgeInsets.all(20),
         child: Column(
@@ -63,7 +65,7 @@ class _ComplainBoxState extends State<ComplainBox> {
             Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Color(0x3EFA46FF),
+                color: Back,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: TextField(
@@ -86,7 +88,7 @@ class _ComplainBoxState extends State<ComplainBox> {
                 SizedBox(width: 10),
                 Expanded(
                   child:
-                  CustomButton(text: "My Current Location", callback: (){
+                  CustomButton(text: " Location", callback: (){
 
                   })
                 ),

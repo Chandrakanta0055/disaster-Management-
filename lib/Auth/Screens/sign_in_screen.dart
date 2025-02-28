@@ -60,71 +60,76 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BGColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 50),
-            Text(
-              "Sign In",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: textColor),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 6),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const SignUpScreen()),
-                  );
-                },
-                child: const Text(
-                  "Create an Account",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: Colors.blue),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: gradiant2
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 50),
+              Text(
+                "Sign In",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22, color: black),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 6),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                    );
+                  },
+                  child: const Text(
+                    "Create an Account",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10, color: Colors.blue),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 60),
-            TextFormField(
-              controller: emailController,
-              style: const TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                hintText: "Enter the Email",
-                hintStyle: TextStyle(color: textColor),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: Colors.white, width: 2),
+              const SizedBox(height: 60),
+              TextFormField(
+                controller: emailController,
+                style: TextStyle(color: black),
+                decoration: InputDecoration(
+                  hintText: "Enter the Email",
+                  hintStyle: TextStyle(color: black),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(color: Colors.white, width: 2),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            TextFormField(
-              controller: passwordController,
-              obscureText: true, // Hides password input
-              style: const TextStyle(color: Colors.white),
-              decoration: InputDecoration(
-                hintText: "Enter the Password",
-                hintStyle: TextStyle(color: textColor),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: Colors.white, width: 2),
+              const SizedBox(height: 20),
+              TextFormField(
+                controller: passwordController,
+                obscureText: true, // Hides password input
+                style: const TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                  hintText: "Enter the Password",
+                  hintStyle: TextStyle(color: Colors.black),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(color: Colors.white, width: 2),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 40),
+              const SizedBox(height: 40),
 
-            _isLoading
-                ? const Center(child: CircularProgressIndicator())
-                : CustomButton(
-              text: "Sign In",
-              callback: signIn,
-            ),
+              _isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : CustomButton(
+                text: "Sign In",
+                callback: signIn,
+              ),
 
-            Expanded(child: Container()),
+              Expanded(child: Container()),
 
-            const SizedBox(height: 50),
-          ],
+              const SizedBox(height: 50),
+            ],
+          ),
         ),
       ),
     );

@@ -40,10 +40,13 @@ class ComplainServices {
         imagePaths: imageUrl,
         location: location,
 
-        dateSubmitted: Timestamp.now().toString(), // Using Timestamp.now()
-        senderId: user.uid,
+
+        dateSubmitted: DateTime.now().toString(), // Using Timestamp.now()
+        senderId:  user.uid,
         category: "ComplainBox",
+          name:  user.name,
       );
+
 
       await FirebaseFirestore.instance
           .collection("Notification")

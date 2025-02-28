@@ -28,7 +28,7 @@ class _ShowReportState extends State<ShowReport> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Show Report'),
-        backgroundColor: BGColor,
+        backgroundColor: appBarColor,
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10),
