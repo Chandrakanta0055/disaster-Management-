@@ -37,4 +37,40 @@ void ShowSnakbar(String  data,BuildContext context){
   );
 }
 
+void _extractLocationParameters(String locationString) {
+  // Split the string using '|'
+  List<String> parts = locationString.split('|');
+  if (parts.length >= 8) {
+    String latitude = parts[0];
+    String longitude = parts[1];
+    String timestamp = parts[2];
+    String accuracy = parts[3];
+    String altitude = parts[4];
+    String heading = parts[5];
+    String speed = parts[6];
+    String speedAccuracy = parts[7];
+    print("Extracted Latitude: $latitude");
+
+    print("Extracted Longitude: $longitude");
+
+    print("Extracted Timestamp: $timestamp");
+
+    print("Extracted Accuracy: $accuracy meters");
+
+    print("Extracted Altitude: $altitude meters");
+
+    print("Extracted Heading: $heading degrees");
+
+    print("Extracted Speed: $speed m/s");
+
+    print("Extracted Speed Accuracy: $speedAccuracy m/s");
+
+  } else {
+
+    print("Error: Invalid location string format");
+
+  }
+
+}
+
 

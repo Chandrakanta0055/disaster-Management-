@@ -5,7 +5,9 @@ import 'package:disaster_management/constants/CustomButton.dart';
 import 'package:disaster_management/constants/globalVariables.dart';
 
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class ComplainBox extends StatefulWidget {
   const ComplainBox({super.key});
@@ -19,6 +21,37 @@ class _ComplainBoxState extends State<ComplainBox> {
   String description = "";
   List<File> _images = [];
   final picker = ImagePicker();
+  String location = "";
+  final ValueNotifier<Position?> _currentPosition = ValueNotifier(null);
+  Future<bool> requestLocationPermission() async {
+    var status = await Permission.location.request();
+    if (status.isGranted) {
+      return true; // Permission granted
+    } else if (status.isDenied) {
+
+      print("Location permission is denied.");
+    } else if (status.isPermanentlyDenied) {
+      print("Location permission is permanently denied. Please enable it in settings.");
+      openAppSettings();
+    }
+    return false;
+  }
+
+  Future<String> _getCurrentLocation() async {
+    String location = "";
+    try {
+      bool isPermissionGranted = await requestLocationPermission();
+      if (!isPermissionGranted) {
+        return "Location Permission Denied";
+      }
+
+      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+      location = "${position.latitude}, ${position.longitude}";
+    } catch (e) {
+      print("Error getting location: $e");
+    }
+    return location;
+  }
 
   Future<void> _pickImages() async {
     final pickedFiles = await picker.pickMultiImage();
@@ -36,7 +69,7 @@ class _ComplainBoxState extends State<ComplainBox> {
         return;
       }
     ComplainServices services = ComplainServices();
-     services.giveComplain(context: context, title: titleController.text.trim(), description: description, images: _images, location: "");
+     services.giveComplain(context: context, title: titleController.text.trim(), description: description, images: _images, location: location);
      Navigator.pop(context);
   }
 
@@ -88,7 +121,8 @@ class _ComplainBoxState extends State<ComplainBox> {
                 SizedBox(width: 10),
                 Expanded(
                   child:
-                  CustomButton(text: " Location", callback: (){
+                  CustomButton(text: " Location", callback: ()async{
+                   location =  await _getCurrentLocation();
 
                   })
                 ),

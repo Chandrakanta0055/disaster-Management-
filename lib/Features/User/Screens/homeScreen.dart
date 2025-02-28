@@ -1,12 +1,15 @@
+import 'package:disaster_management/Features/Admin/Screens/HistoryReport.dart';
 import 'package:disaster_management/Features/Admin/Screens/emergency_alert.dart';
 import 'package:disaster_management/Features/Admin/Screens/report.dart';
 import 'package:disaster_management/Features/Admin/Screens/work.dart';
+import 'package:disaster_management/Features/GovernmantWorker/Screens/myTask.dart';
 import 'package:disaster_management/Features/User/Screens/ShowNotification.dart';
 import 'package:disaster_management/Features/User/Screens/complain_box.dart';
 import 'package:disaster_management/Features/User/Screens/feedBack.dart';
 import 'package:disaster_management/constants/globalVariables.dart';
 import 'package:disaster_management/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:disaster_management/Features/User/Screens/weather_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +38,11 @@ class _HomescreenState extends State<Homescreen> {
       "Feed Back",
       "report",
       "work"
+    ] : user.role == "G/S" ? [
+      "Complain Box",
+      "Notification",
+      "Weather Updates",
+      "Current Task",
     ] : [
       "Complain Box",
       "Notification",
@@ -73,7 +81,8 @@ class _HomescreenState extends State<Homescreen> {
     });
     },
     child: const Text(
-    "Government of India",
+    "Government of Odisha",
+
     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
     ),
     ),
@@ -81,7 +90,6 @@ class _HomescreenState extends State<Homescreen> {
     ),
     ),
     ),
-
     body:  Container(
     decoration: const BoxDecoration(
     gradient: LinearGradient(
@@ -150,16 +158,18 @@ class _HomescreenState extends State<Homescreen> {
         }
       else if(index ==2)
       {
-
-
-
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage() ));
       }
-      else if(index ==3)
+      else if(index == 3 && user.role == "G/S"){
+
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> Mytask()));
+      }
+      else if (index == 3)
       {
         Navigator.push(context, MaterialPageRoute(builder: (context)=> FeedbackWidget()));
       }
       else if(index == 4){
-        // Navigator.push(context, MaterialPageRoute(builder: (context)=> ShowReport()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> HistoryReport()));
 
       }
       else if(index == 5){
